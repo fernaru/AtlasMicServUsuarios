@@ -1,8 +1,8 @@
-package com.co.canservero.tigon.models.services;
+package com.co.kerbero.atlas.services;
 
 import java.util.List;
 
-import com.co.canservero.tigon.models.entity.Usuario;
+import com.co.kerbero.atlas.models.entity.Usuario;
 
 public interface IUsuarioService {
 	

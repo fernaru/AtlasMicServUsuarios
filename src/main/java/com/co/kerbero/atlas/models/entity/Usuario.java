@@ -1,4 +1,4 @@
-package com.co.canservero.tigon.models.entity;
+package com.co.kerbero.atlas.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;

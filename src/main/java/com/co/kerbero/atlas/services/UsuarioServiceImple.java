@@ -1,4 +1,4 @@
-package com.co.canservero.tigon.models.services;
+package com.co.kerbero.atlas.services;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.co.canservero.tigon.models.dao.IUsuarioDao;
-import com.co.canservero.tigon.models.entity.Usuario;
+import com.co.kerbero.atlas.models.dao.IUsuarioDao;
+import com.co.kerbero.atlas.models.entity.Usuario;
 
 @Service
 public class UsuarioServiceImple implements IUsuarioService {
