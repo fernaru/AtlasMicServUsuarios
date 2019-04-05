@@ -65,13 +65,10 @@ public class Usuario implements Serializable {
 	private Date fechaConforEmpresa;
 	
 	@NotEmpty
-	@Size(min=10, max=14)
 	@Column(nullable=false)
 	private Long telefono;
 	
 	@NotEmpty
-	@Size(min=3, max=35)
-	@Column(nullable=false)
 	private Long celular;
 	
 	private String direccion;
@@ -80,7 +77,6 @@ public class Usuario implements Serializable {
 	private String telefEmpresa;
 	
 	@NotEmpty
-	@Column(nullable=false)
 	private String nitEmpresa;
 	
 	@PrePersist
