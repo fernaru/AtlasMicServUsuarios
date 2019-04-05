@@ -10,6 +10,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="usuarios")
@@ -20,19 +23,27 @@ public class Usuario implements Serializable {
 	
 	private String tipoIdenti;
 	
+	@NotEmpty
+	@Size(min=3, max=35)
 	@Column(nullable=false)
 	private String nombre;
 	
 	private String segundoNombre;
 	
+	@NotEmpty
+	@Size(min=3, max=35)
 	@Column(nullable=false)
 	private String apellido;
 	
 	private String segundoApellido;
 	
+	@NotEmpty
+	@Size(min=8, max=18)
 	@Column(nullable=false, unique=true)
 	private String username;
 	
+	@NotEmpty
+	@Email
 	@Column(nullable=false, unique=true)
 	private String email;
 	
@@ -53,12 +64,23 @@ public class Usuario implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechaConforEmpresa;
 	
+	@NotEmpty
+	@Size(min=10, max=14)
+	@Column(nullable=false)
 	private Long telefono;
+	
+	@NotEmpty
+	@Size(min=3, max=35)
+	@Column(nullable=false)
 	private Long celular;
+	
 	private String direccion;
 	private String nombreEmpresa;
 	private String direcEmpresa;
 	private String telefEmpresa;
+	
+	@NotEmpty
+	@Column(nullable=false)
 	private String nitEmpresa;
 	
 	@PrePersist
