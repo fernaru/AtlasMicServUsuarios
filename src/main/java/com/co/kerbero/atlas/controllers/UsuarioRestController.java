@@ -33,12 +33,12 @@ public class UsuarioRestController {
 	@Autowired
 	private IUsuarioService usuarioService;
 	
-	@GetMapping("/getUsers")
+	@GetMapping("/usuario")
 	public List<Usuario> index(){
 		return usuarioService.findAll();
 	}
 	
-	@GetMapping("/getUsers/{id}")
+	@GetMapping("/usuario/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 		Usuario usuario= usuarioService.findById(id);
 		
