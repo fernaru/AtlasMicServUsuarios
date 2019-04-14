@@ -64,17 +64,15 @@ public class Usuario implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechaConforEmpresa;
 	
-	@NotEmpty
-	@Column(nullable=false)
 	private Long telefono;
 	
-	@NotEmpty
 	private Long celular;
 	
 	private String direccion;
 	private String nombreEmpresa;
 	private String direcEmpresa;
 	private String telefEmpresa;
+	private int rol;
 	
 	@NotEmpty
 	private String nitEmpresa;
@@ -82,6 +80,10 @@ public class Usuario implements Serializable {
 	@PrePersist
 	public void prePersist(){
 		createAt = new Date();
+		modifeAt= new Date();
+		fechaExpeDocumento= new Date();
+		fechaNacimiento= new Date();
+		fechaConforEmpresa= new Date();
 	}
 
 	public String getTipoIdenti() {
@@ -244,7 +246,16 @@ public class Usuario implements Serializable {
 		this.nitEmpresa = nitEmpresa;
 	}
 	
-	
+	public int getRol() {
+		return rol;
+	}
+
+	public void setRol(int rol) {
+		this.rol = rol;
+	}
+
+
+
 	/**
 	 * 
 	 */

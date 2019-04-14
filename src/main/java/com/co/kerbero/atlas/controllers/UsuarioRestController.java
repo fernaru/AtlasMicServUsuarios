@@ -84,7 +84,7 @@ public class UsuarioRestController {
 		
 	}
 	
-	@PutMapping("/getUsers/{id}")
+	@PutMapping("/usuario/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody Usuario usuario, @PathVariable Long id, BindingResult result) {
 		
 		Usuario usuarioActual = usuarioService.findById(id);
@@ -113,6 +113,7 @@ public class UsuarioRestController {
 			usuarioActual.setTelefono(usuario.getTelefono());
 			usuarioActual.setNombreEmpresa(usuario.getNombreEmpresa());
 			usuarioActual.setNitEmpresa(usuario.getNitEmpresa());
+			usuarioActual.setRol(usuario.getRol());
 			usuarioUpdate = usuarioService.save(usuarioActual);
 			response.put("mensaje", "El usuario ha sido Actualizado con éxito");
 			response.put("usuario", usuarioUpdate);
@@ -124,7 +125,7 @@ public class UsuarioRestController {
 		}	
 	}
 	
-	@DeleteMapping("/getUsers/{id}")
+	@DeleteMapping("/usuario/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		Map<String, Object> response = new HashMap<>();
 		try {
