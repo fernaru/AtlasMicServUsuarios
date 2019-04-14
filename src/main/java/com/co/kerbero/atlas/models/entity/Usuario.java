@@ -30,19 +30,19 @@ public class Usuario implements Serializable {
 	
 	private String segundoNombre;
 	
-	@NotEmpty
+	@NotEmpty(message ="No puede estar vacio")
 	@Size(min=3, max=35)
 	@Column(nullable=false)
 	private String apellido;
 	
 	private String segundoApellido;
 	
-	@NotEmpty
+	@NotEmpty(message ="No puede estar vacio")
 	@Size(min=8, max=18)
 	@Column(nullable=false, unique=true)
 	private String username;
 	
-	@NotEmpty
+	@NotEmpty(message ="No puede estar vacio")
 	@Email
 	@Column(nullable=false, unique=true)
 	private String email;
@@ -74,7 +74,7 @@ public class Usuario implements Serializable {
 	private String telefEmpresa;
 	private int rol;
 	
-	@NotEmpty
+	@NotEmpty(message ="No puede estar vacio") 
 	private String nitEmpresa;
 	
 	@PrePersist
