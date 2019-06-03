@@ -11,38 +11,47 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="usuarios")
 public class Usuario implements Serializable {
-
+	
 	@Id
 	private Long numIdenti;
 	
 	private String tipoIdenti;
 	
-	@NotEmpty
+	
 	@Size(min=3, max=35)
 	@Column(nullable=false)
 	private String nombre;
 	
 	private String segundoNombre;
 	
-	@NotEmpty(message ="No puede estar vacio")
+	
 	@Size(min=3, max=35)
 	@Column(nullable=false)
 	private String apellido;
 	
 	private String segundoApellido;
 	
-	@NotEmpty(message ="No puede estar vacio")
+	
 	@Size(min=8, max=18)
 	@Column(nullable=false, unique=true)
 	private String username;
 	
-	@NotEmpty(message ="No puede estar vacio")
+	
+	@Size(min=8, max=18)
+	@Column(nullable=false, unique=false)
+	private String password;
+	
+	
+	@Size(max=1)
+	@Column(nullable=false, unique=false)
+	private String estadoUser;
+	
+	
 	@Email
 	@Column(nullable=false, unique=true)
 	private String email;
@@ -64,34 +73,24 @@ public class Usuario implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechaConforEmpresa;
 	
-	private Long telefono;
 	
-	private Long celular;
+	@Column(nullable=false)
+	private String telefono;
+	
+	
+	private String celular;
 	
 	private String direccion;
 	private String nombreEmpresa;
 	private String direcEmpresa;
 	private String telefEmpresa;
-	private int rol;
 	
-	@NotEmpty(message ="No puede estar vacio") 
+	
 	private String nitEmpresa;
 	
 	@PrePersist
 	public void prePersist(){
 		createAt = new Date();
-		modifeAt= new Date();
-		fechaExpeDocumento= new Date();
-		fechaNacimiento= new Date();
-		fechaConforEmpresa= new Date();
-	}
-
-	public String getTipoIdenti() {
-		return tipoIdenti;
-	}
-
-	public void setTipoIdenti(String tipoIdenti) {
-		this.tipoIdenti = tipoIdenti;
 	}
 
 	public Long getNumIdenti() {
@@ -100,6 +99,14 @@ public class Usuario implements Serializable {
 
 	public void setNumIdenti(Long numIdenti) {
 		this.numIdenti = numIdenti;
+	}
+
+	public String getTipoIdenti() {
+		return tipoIdenti;
+	}
+
+	public void setTipoIdenti(String tipoIdenti) {
+		this.tipoIdenti = tipoIdenti;
 	}
 
 	public String getNombre() {
@@ -140,6 +147,22 @@ public class Usuario implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEstadoUser() {
+		return estadoUser;
+	}
+
+	public void setEstadoUser(String estadoUser) {
+		this.estadoUser = estadoUser;
 	}
 
 	public String getEmail() {
@@ -190,22 +213,6 @@ public class Usuario implements Serializable {
 		this.fechaConforEmpresa = fechaConforEmpresa;
 	}
 
-	public Long getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(Long telefono) {
-		this.telefono = telefono;
-	}
-
-	public Long getCelular() {
-		return celular;
-	}
-
-	public void setCelular(Long celular) {
-		this.celular = celular;
-	}
-
 	public String getDireccion() {
 		return direccion;
 	}
@@ -246,19 +253,24 @@ public class Usuario implements Serializable {
 		this.nitEmpresa = nitEmpresa;
 	}
 	
-	public int getRol() {
-		return rol;
+	public String getTelefono() {
+		return telefono;
 	}
 
-	public void setRol(int rol) {
-		this.rol = rol;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
+	public String getCelular() {
+		return celular;
+	}
 
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 7135653536416679743L;
 }

@@ -113,7 +113,7 @@ public class UsuarioRestController {
 			usuarioActual.setTelefono(usuario.getTelefono());
 			usuarioActual.setNombreEmpresa(usuario.getNombreEmpresa());
 			usuarioActual.setNitEmpresa(usuario.getNitEmpresa());
-			usuarioActual.setRol(usuario.getRol());
+			//usuarioActual.setRol(usuario.getRol());
 			usuarioUpdate = usuarioService.save(usuarioActual);
 			response.put("mensaje", "El usuario ha sido Actualizado con éxito");
 			response.put("usuario", usuarioUpdate);
